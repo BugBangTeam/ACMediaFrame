@@ -309,6 +309,9 @@
     else {
         _photos = [NSMutableArray array];
         MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        browser.browserBackgroundColor = [UIColor whiteColor];
+        browser.displayDeleteButton = YES;
+        browser.displayToolBar = NO;
         browser.displayActionButton = NO;
         browser.alwaysShowControls = NO;
         browser.displaySelectionButtons = NO;
@@ -316,6 +319,18 @@
         browser.displayNavArrows = NO;
         browser.startOnGrid = NO;
         browser.enableGrid = YES;
+        browser.backBlock = ^{
+            [collectionView reloadData];
+        };
+        __weak __typeof__(self) weakSelf = self;
+        browser.removeBlock = ^(NSUInteger index) {
+            if (weakSelf.mediaArray.count > index) {
+                [weakSelf.mediaArray removeObjectAtIndex:index];
+            }
+            if (weakSelf.selectedImageAssets.count > index) {
+                [weakSelf.selectedImageAssets removeObjectAtIndex:indexPath.row];
+            }
+        };
         for (ACMediaModel *model in _mediaArray) {
             MWPhoto *photo = [MWPhoto photoWithImage:model.image];
             photo.caption = model.name;
@@ -346,6 +361,12 @@
         return [self.photos objectAtIndex:index];
     }
     return nil;
+}
+
+- (void)removeFromPhotosAtIndex:(NSUInteger)index {
+    if (index < self.photos.count) {
+        [self.photos removeObjectAtIndex:index];
+    }
 }
 
 #pragma mark - 布局
@@ -392,7 +413,7 @@
 /** 相机 */
 - (void)openCamera {
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-
+    
     if ([UIImagePickerController isSourceTypeAvailable: sourceType]){
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
@@ -418,7 +439,7 @@
         [UIAlertController showAlertWithTitle:@"当前设备不支持录像" message:nil actionTitles:@[@"确定"] cancelTitle:nil style:UIAlertControllerStyleAlert completion:nil];
     }
     [[self currentViewController] presentViewController:picker animated:YES completion:nil];
-
+    
 }
 
 /** 视频 */
@@ -476,7 +497,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     [picker dismissViewControllerAnimated:YES completion:nil];
-
+    
     //媒体类型
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     //原图URL
