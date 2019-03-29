@@ -328,7 +328,7 @@
                 [weakSelf.mediaArray removeObjectAtIndex:index];
             }
             if (weakSelf.selectedImageAssets.count > index) {
-                [weakSelf.selectedImageAssets removeObjectAtIndex:indexPath.row];
+                [weakSelf.selectedImageAssets removeObjectAtIndex:index];
             }
         };
         for (ACMediaModel *model in _mediaArray) {
