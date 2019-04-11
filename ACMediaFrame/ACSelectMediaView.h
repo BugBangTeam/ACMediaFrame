@@ -52,6 +52,11 @@ typedef void(^ACSelectMediaBackBlock)(NSArray<ACMediaModel *> *list);
 @property (nonatomic, assign) BOOL showDelete;
 
 /**
+ * 点击图片放大后是否显示删除按钮. Defaults is YES
+ */
+@property (nonatomic, assign) BOOL shownNavDelete;
+
+/**
  * 是否需要显示添加按钮. Defaults is YES
  */
 @property (nonatomic, assign) BOOL showAddButton;

@@ -72,6 +72,7 @@
     self.selectedAssetsDic = [NSMutableDictionary dictionary];
     _type = ACMediaTypePhotoAndCamera;
     _showDelete = YES;
+    _shownNavDelete = YES;
     _showAddButton = YES;
     _allowMultipleSelection = YES;
     _maxImageSelected = 9;
@@ -100,6 +101,10 @@
 
 - (void)setShowDelete:(BOOL)showDelete {
     _showDelete = showDelete;
+}
+
+- (void)setShownNavDelete:(BOOL)shownNavDelete {
+    _shownNavDelete = shownNavDelete;
 }
 
 - (void)setShowAddButton:(BOOL)showAddButton {
@@ -310,7 +315,7 @@
         _photos = [NSMutableArray array];
         MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
         browser.browserBackgroundColor = [UIColor whiteColor];
-        browser.displayDeleteButton = YES;
+        browser.displayDeleteButton = self.shownNavDelete;
         browser.displayToolBar = NO;
         browser.displayActionButton = NO;
         browser.alwaysShowControls = NO;
