@@ -420,14 +420,74 @@
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
     
     if ([UIImagePickerController isSourceTypeAvailable: sourceType]){
-        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = sourceType;
-        [[self currentViewController] presentViewController:picker animated:YES completion:nil];
+        
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        
+        if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
+            
+            // 无相机权限 做一个友好的提示
+            UIAlertController *simulatorAlert = [UIAlertController alertControllerWithTitle:@"无法使用相机" message:@"请在iPhone的""设置-隐私-相机""中允许访问相机" preferredStyle:UIAlertControllerStyleAlert];
+            [simulatorAlert addAction:[UIAlertAction actionWithTitle:@"好吧" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                return;
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:simulatorAlert animated:YES completion:nil];
+        }
+        
+        else if (authStatus == AVAuthorizationStatusNotDetermined) {
+            
+            // 防止用户首次拍照拒绝授权时相机页黑屏
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self openCamera];
+                    });
+                }
+            }];
+        }
+        // 拍照之前还需要检查相册权限
+        else if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限，将无法保存拍的照片
+            
+            // 无相机权限 做一个友好的提示
+            UIAlertController *simulatorAlert = [UIAlertController alertControllerWithTitle:@"无法使用相机" message:@"请在iPhone的""设置-隐私-相册""中允许访问相册" preferredStyle:UIAlertControllerStyleAlert];
+            [simulatorAlert addAction:[UIAlertAction actionWithTitle:@"好吧" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                return;
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:simulatorAlert animated:YES completion:nil];
+            
+        }
+        // 未请求过相册权限
+        else if ([PHPhotoLibrary authorizationStatus] == 0) {
+            [self requestAuthorizationWithCompletion:^{
+                [self openCamera];
+            }];
+        }
+        else {
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = YES;
+            picker.sourceType = sourceType;
+            [[self currentViewController] presentViewController:picker animated:YES completion:nil];
+        }
     }else{
         [UIAlertController showAlertWithTitle:@"该设备不支持拍照" message:nil actionTitles:@[@"确定"] cancelTitle:nil style:UIAlertControllerStyleAlert completion:nil];
     }
+}
+
+/** 授权 */
+- (void)requestAuthorizationWithCompletion:(void (^)(void))completion {
+    void (^callCompletionBlock)(void) = ^(){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion();
+            }
+        });
+    };
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            callCompletionBlock();
+        }];
+    });
 }
 
 /** 录像 */
