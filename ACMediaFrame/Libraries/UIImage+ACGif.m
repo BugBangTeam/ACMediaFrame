@@ -9,6 +9,7 @@
 #import "UIImage+ACGif.h"
 #import "UIImage+GIF.h"
 
+
 @implementation UIImage (ACGif)
 
 + (UIImage *)ac_setGifWithName: (NSString *)name {
@@ -16,7 +17,7 @@
 }
 
 + (UIImage *)ac_setGifWithData: (NSData *)data {
-    return [self sd_animatedGIFWithData:data];
+    return [self sd_imageWithGIFData:data];
 }
 
 + (UIImage *)imageForResourcePath:(NSString *)path ofType:(NSString *)type inBundle:(NSBundle *)bundle {
@@ -32,7 +33,7 @@
         NSData *data = [NSData dataWithContentsOfFile:retinaPath];
         
         if (data) {
-            return [UIImage sd_animatedGIFWithData:data];
+            return [UIImage sd_imageWithGIFData:data];
         }
         
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"gif"];
@@ -40,7 +41,7 @@
         data = [NSData dataWithContentsOfFile:path];
         
         if (data) {
-            return [UIImage sd_animatedGIFWithData:data];
+            return [UIImage sd_imageWithGIFData:data];
         }
         
         return [UIImage imageNamed:name];
@@ -51,7 +52,7 @@
         NSData *data = [NSData dataWithContentsOfFile:path];
         
         if (data) {
-            return [UIImage sd_animatedGIFWithData:data];
+            return [UIImage sd_imageWithGIFData:data];
         }
         
         return [UIImage imageNamed:name];

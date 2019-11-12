@@ -41,8 +41,6 @@
     md.image = [UIImage imageNamed:@"memory"];
     
     mediaView.preShowMedias = @[md, @"bug.gif", @"bg_1", @"bg_2", @"http://c.hiphotos.baidu.com/image/h%3D200/sign=ad1c53cd0355b31983f9857573ab8286/279759ee3d6d55fbb02469ea64224f4a21a4dd1f.jpg", @"http://img15.3lian.com/2015/h1/280/d/5.jpg"];
-    mediaView.allowMultipleSelection = NO;
-    mediaView.allowPickingVideo = YES;
     self.mediaView = mediaView;
     [mediaView observeViewHeight:^(CGFloat mediaHeight) {
         CGRect rect = headerView.frame;

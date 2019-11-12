@@ -12,10 +12,8 @@
 
 /** 媒体资源的类型 */
 typedef NS_ENUM(NSInteger, ACMediaType) {
-    ACMediaTypePhotoAndCamera = 0, /**< 本地图片和相机 */
+//    ACMediaTypePhotoAndCamera = 0, /**< 本地图片和相机 */
     ACMediaTypePhoto,              /**< 本地图片 */
-    ACMediaTypeCamera,             /**< 相机拍摄 */
-    ACMediaTypeVideotape,          /**< 录像 */
     ACMediaTypeVideo,              /**< 视频 */
     ACMediaTypeAll                 /**< 所有媒体资源 */
 };
@@ -60,16 +58,6 @@ typedef void(^ACSelectMediaBackBlock)(NSArray<ACMediaModel *> *list);
  * 是否需要显示添加按钮. Defaults is YES
  */
 @property (nonatomic, assign) BOOL showAddButton;
-
-/** 
- * 是否允许 在选择图片的同时可以选择视频文件. default is NO
- */
-@property (nonatomic, assign) BOOL allowPickingVideo;
-
-/** 
- * 是否允许 同个图片或视频进行多次选择. default is YES 
- */
-@property (nonatomic, assign) BOOL allowMultipleSelection;
     
 /** 
  * 是否允许 在相册中出现拍照选择. default is NO
