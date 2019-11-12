@@ -7,7 +7,7 @@
 //
 
 #import "ACMediaImageCell.h"
-#import "UIImageView+ACMediaExt.h"
+#import "UIImageView+WebCache.h"
 #import "UIImage+ACGif.h"
 #import "ACMediaFrameConst.h"
 
@@ -73,7 +73,7 @@
 - (void)showIconWithUrlString: (NSString *)urlString image: (UIImage *)image
 {
     if (urlString){
-        [self.icon ac_setImageWithUrlString:urlString placeholderImage:nil];
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:urlString]];
     }else if (image){
         self.icon.image = image;
     }

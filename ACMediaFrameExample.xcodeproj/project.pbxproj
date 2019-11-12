@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37015ED31E88A19300260998 /* UIImageView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 37015ED21E88A19300260998 /* UIImageView+ACMediaExt.m */; };
-		37015ED61E88A4AE00260998 /* UIViewController+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 37015ED51E88A4AE00260998 /* UIViewController+ACMediaExt.m */; };
 		370284BF1E878740009C1CE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 370284BE1E878740009C1CE7 /* main.m */; };
 		370284C21E878740009C1CE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 370284C11E878740009C1CE7 /* AppDelegate.m */; };
 		370284C81E878740009C1CE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370284C61E878740009C1CE7 /* Main.storyboard */; };
@@ -24,7 +22,6 @@
 		370285B51E879A7F009C1CE7 /* ACMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 370285A61E879A7F009C1CE7 /* ACMediaModel.m */; };
 		370285B61E879A7F009C1CE7 /* ACSelectMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 370285A81E879A7F009C1CE7 /* ACSelectMediaView.m */; };
 		370285B81E879A7F009C1CE7 /* NSString+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 370285AD1E879A7F009C1CE7 /* NSString+ACMediaExt.m */; };
-		370285B91E879A7F009C1CE7 /* UIView+ACMediaExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 370285AF1E879A7F009C1CE7 /* UIView+ACMediaExt.m */; };
 		37483E401EB0385200589533 /* bug.gif in Resources */ = {isa = PBXBuildFile; fileRef = 37483E3F1EB0385200589533 /* bug.gif */; };
 		37483E431EB03A5900589533 /* UIImage+ACGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 37483E421EB03A5900589533 /* UIImage+ACGif.m */; };
 		5CE378E03673CB64C5BF190B /* Pods_ACMediaFrameExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0939762BE9B3BF78BE7A2008 /* Pods_ACMediaFrameExample.framework */; };
@@ -32,10 +29,6 @@
 
 /* Begin PBXFileReference section */
 		0939762BE9B3BF78BE7A2008 /* Pods_ACMediaFrameExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACMediaFrameExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		37015ED11E88A19300260998 /* UIImageView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ACMediaExt.h"; sourceTree = "<group>"; };
-		37015ED21E88A19300260998 /* UIImageView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ACMediaExt.m"; sourceTree = "<group>"; };
-		37015ED41E88A4AE00260998 /* UIViewController+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ACMediaExt.h"; sourceTree = "<group>"; };
-		37015ED51E88A4AE00260998 /* UIViewController+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ACMediaExt.m"; sourceTree = "<group>"; };
 		370284BA1E87873F009C1CE7 /* ACMediaFrameExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACMediaFrameExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		370284BE1E878740009C1CE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		370284C01E878740009C1CE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,8 +58,6 @@
 		370285A81E879A7F009C1CE7 /* ACSelectMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACSelectMediaView.m; sourceTree = "<group>"; };
 		370285AC1E879A7F009C1CE7 /* NSString+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ACMediaExt.h"; sourceTree = "<group>"; };
 		370285AD1E879A7F009C1CE7 /* NSString+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ACMediaExt.m"; sourceTree = "<group>"; };
-		370285AE1E879A7F009C1CE7 /* UIView+ACMediaExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ACMediaExt.h"; sourceTree = "<group>"; };
-		370285AF1E879A7F009C1CE7 /* UIView+ACMediaExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ACMediaExt.m"; sourceTree = "<group>"; };
 		37483E3F1EB0385200589533 /* bug.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bug.gif; sourceTree = "<group>"; };
 		37483E411EB03A5900589533 /* UIImage+ACGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ACGif.h"; sourceTree = "<group>"; };
 		37483E421EB03A5900589533 /* UIImage+ACGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ACGif.m"; sourceTree = "<group>"; };
@@ -158,14 +149,8 @@
 		370285AB1E879A7F009C1CE7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				37015ED41E88A4AE00260998 /* UIViewController+ACMediaExt.h */,
-				37015ED51E88A4AE00260998 /* UIViewController+ACMediaExt.m */,
 				370285AC1E879A7F009C1CE7 /* NSString+ACMediaExt.h */,
 				370285AD1E879A7F009C1CE7 /* NSString+ACMediaExt.m */,
-				370285AE1E879A7F009C1CE7 /* UIView+ACMediaExt.h */,
-				370285AF1E879A7F009C1CE7 /* UIView+ACMediaExt.m */,
-				37015ED11E88A19300260998 /* UIImageView+ACMediaExt.h */,
-				37015ED21E88A19300260998 /* UIImageView+ACMediaExt.m */,
 				37483E411EB03A5900589533 /* UIImage+ACGif.h */,
 				37483E421EB03A5900589533 /* UIImage+ACGif.m */,
 			);
@@ -201,7 +186,6 @@
 				370284B71E87873F009C1CE7 /* Frameworks */,
 				370284B81E87873F009C1CE7 /* Resources */,
 				B308CB932D64169ED6CA085B /* [CP] Embed Pods Frameworks */,
-				D137EF1EFDED34B7A16EDA4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +217,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -286,41 +271,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ACMediaFrameExample/Pods-ACMediaFrameExample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ACAlertController/ACAlertController.framework",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ACMediaFrameExample/Pods-ACMediaFrameExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACAlertController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ACMediaFrameExample/Pods-ACMediaFrameExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D137EF1EFDED34B7A16EDA4E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ACMediaFrameExample/Pods-ACMediaFrameExample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACMediaFrameExample/Pods-ACMediaFrameExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -330,7 +292,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				370285B91E879A7F009C1CE7 /* UIView+ACMediaExt.m in Sources */,
 				370284C21E878740009C1CE7 /* AppDelegate.m in Sources */,
 				370285B81E879A7F009C1CE7 /* NSString+ACMediaExt.m in Sources */,
 				370284DF1E87924C009C1CE7 /* EditTableViewController.m in Sources */,
@@ -342,9 +303,7 @@
 				370285B61E879A7F009C1CE7 /* ACSelectMediaView.m in Sources */,
 				370284DC1E87923F009C1CE7 /* DisplayTableViewController.m in Sources */,
 				370285B41E879A7F009C1CE7 /* ACMediaManager.m in Sources */,
-				37015ED61E88A4AE00260998 /* UIViewController+ACMediaExt.m in Sources */,
 				370284D91E879234009C1CE7 /* AddTableViewController.m in Sources */,
-				37015ED31E88A19300260998 /* UIImageView+ACMediaExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

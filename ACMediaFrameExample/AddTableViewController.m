@@ -8,7 +8,6 @@
 
 #import "AddTableViewController.h"
 #import "ACMediaFrame.h"
-#import "UIView+ACMediaExt.h"
 
 @interface AddTableViewController ()
 
@@ -27,18 +26,19 @@
     [bgView addSubview:descView];
     
     ACSelectMediaView *mediaView = [[ACSelectMediaView alloc] initWithFrame:CGRectMake(0, 150, [[UIScreen mainScreen] bounds].size.width, 1)];
-    mediaView.type = ACMediaTypePhoto;
-    mediaView.maxImageSelected = 6;
+    mediaView.type = ACMediaTypeAll;
+    mediaView.maxImageSelected = 4;
     mediaView.naviBarBgColor = [UIColor redColor];
     mediaView.rowImageCount = 3;
     mediaView.lineSpacing = 20;
     mediaView.interitemSpacing = 20;
     mediaView.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    __weak typeof(self) weakself = self;
     [mediaView observeViewHeight:^(CGFloat mediaHeight) {
         descView.frame = CGRectMake(0, CGRectGetMaxY(mediaView.frame) + 20, CGRectGetWidth(mediaView.frame), 200);
         bgView.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, CGRectGetMaxY(descView.frame) + 40);
         //注意：在里面更新，避免滚动不到底
-        self.tableView.tableFooterView = bgView;
+        weakself.tableView.tableFooterView = bgView;
     }];
     // observeViewHeight 存在时可以不写
 //    [mediaView reload];
@@ -53,6 +53,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.1;
+}
+
+- (void)dealloc {
+    NSLog(@"1111");
 }
 
 @end
