@@ -396,6 +396,7 @@
 ///配置 TZImagePickerController属性、导航栏属性
 - (void)configureTZNaviBar: (TZImagePickerController *)pick
 {
+    pick.allowCameraLocation = NO;
     pick.allowTakePicture = self.allowTakePicture;
     pick.allowPickingOriginalPhoto = self.allowPickingOriginalPhoto;
     
